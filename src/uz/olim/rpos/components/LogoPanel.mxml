@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx"
+	height="350" width="252">
+	
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<mx:Image source="assets/images/logo.png" horizontalCenter="0" top="79"/>
+	<s:Label styleName="caption" text="Система управления рестораном" y="195" horizontalCenter="0" width="243" textAlign="center"/>
+	<s:Label y="222" text="бета" color="#888888" horizontalCenter="81"/>
+	
+</s:Group>

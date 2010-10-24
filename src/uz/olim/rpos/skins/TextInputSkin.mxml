@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx">
+	<!-- host component -->
+	<fx:Metadata>
+		[HostComponent("spark.components.TextInput")]
+	</fx:Metadata>
+	
+	<!-- states -->
+	<s:states>
+		<s:State name="disabled" />
+		<s:State name="normal" />
+	</s:states>
+	
+	<!-- SkinParts
+	name=textDisplay, type=spark.components.RichEditableText, required=false
+	-->
+	
+	<s:Rect left="0" right="0" top="0" bottom="3">
+		<s:stroke>
+			<s:SolidColorStroke weight="3" color="#0A92FE" joints="miter"/>
+		</s:stroke>
+		<s:fill>
+			<s:LinearGradient rotation="90">
+				<s:GradientEntry color="#EFEFEF" ratio="0.0"/>
+				<s:GradientEntry color="#FFFFFF" ratio="0.3"/>
+			</s:LinearGradient>
+		</s:fill>
+		<s:filters>
+			<mx:DropShadowFilter blurX="3" blurY="3" distance="3" alpha="0.2"/>
+		</s:filters>
+	</s:Rect>
+	
+	<s:RichEditableText id="textDisplay"
+		verticalAlign="middle"
+		widthInChars="10"
+		left="5" right="5" top="10" bottom="5" fontSize="30" focusBlendMode="null" color="#666666"/>
+</s:Skin>

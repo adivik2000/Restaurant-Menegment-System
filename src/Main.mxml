@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx"
+	xmlns:comps="uz.olim.rpos.components.*"
+	showStatusBar="false" skinClass="uz.olim.rpos.skins.ApplicationSkin"
+	creationComplete="creationComplete(event)" applicationActivate="applicationActive(event)">
+	
+	<fx:Style source="Main.css"/>
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import mx.core.mx_internal;
+			import mx.events.FlexEvent;
+			import mx.managers.PopUpManager;
+			
+			import spark.components.Application;
+			import spark.components.Button;
+			import spark.components.Label;
+			
+			import uz.olim.rpos.components.MessageBox;
+			import uz.olim.rpos.components.MessageBoxWindow;
+			import uz.olim.rpos.skins.TextInputSkin;
+			import uz.olim.rpos.skins.TouchButtonSkin;
+
+			[SkinPart(required="true")]
+			public var closeButton: Button;
+			
+			
+			public var minimizeButton: Button;
+			
+			
+			public var helpButton: Button;
+			
+			override protected function partAdded(partName: String, instance: Object): void {
+				super.partAdded(partName, instance);
+				
+				if (instance == closeButton) {
+					instance.addEventListener(MouseEvent.CLICK, closeButton_clickHandler);
+				}
+				else if (instance == minimizeButton) {
+					instance.addEventListener(MouseEvent.CLICK, minimizeButton_clickHandler);
+				}
+				else if (instance == helpButton) {
+					instance.addEventListener(MouseEvent.CLICK, helpButton_clickHandler);
+				}
+			}
+			
+			override protected function partRemoved(partName: String, instance: Object): void {
+				super.partRemoved(partName, instance);
+				
+				if (instance == closeButton) {
+					instance.removeEventListener(MouseEvent.CLICK, closeButton_clickHandler);
+				}
+				else if (instance == minimizeButton) {
+					instance.removeEventListener(MouseEvent.CLICK, minimizeButton_clickHandler);
+				}
+				else if (instance == helpButton) {
+					instance.removeEventListener(MouseEvent.CLICK, helpButton_clickHandler);
+				}
+			}
+
+			protected function closeButton_clickHandler(event:MouseEvent): void {
+				stage.nativeWindow.close();
+			}
+			
+			protected function minimizeButton_clickHandler(event:MouseEvent): void {
+				stage.nativeWindow.minimize();
+			}
+			
+			protected function helpButton_clickHandler(event:MouseEvent): void {
+				PopUpManager.createPopUp(
+					NativeApplication.nativeApplication.activeWindow.stage.root, 
+					MessageBoxWindow, 
+					true);
+			}
+			
+			protected function creationComplete(event: Event): void {
+				title = 'Application Message';
+			}
+			
+			protected function applicationActive(event: Event): void {
+				stage.displayState = StageDisplayState.FULL_SCREEN_INTERACTIVE;
+			}
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<comps:LoginPanel x="349" y="156"/>
+	
+	<s:Button x="202" y="178" label="H" width="119" height="95" fontWeight="normal" styleName="pictos"/>
+	<s:Button x="135" y="42" label="9" toolTip="Удалить" styleName="digit"/>
+	
+</s:WindowedApplication>

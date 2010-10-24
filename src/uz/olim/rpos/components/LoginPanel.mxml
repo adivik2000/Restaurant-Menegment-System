@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:HGroup xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:components="uz.olim.rpos.components.*" gap="10">
+	<fx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			
+			import uz.olim.rpos.events.TouchKeyboardEvent;
+			import uz.olim.rpos.skins.TextInputSkin;
+
+			protected function touchkeyboard_digitClickHandler(event: TouchKeyboardEvent): void {
+				passwordTextInput.text += event.digit;
+			}
+			
+			protected function touchkeyboard_backspaceClickHandler(event: TouchKeyboardEvent): void {
+				passwordTextInput.text = passwordTextInput.text.slice(0, -1);
+			}
+			
+			protected function touchkeyboard_customClickHandler(event: TouchKeyboardEvent): void {
+				Alert.show('Welcome');
+			}
+			
+			
+
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<components:LogoPanel/>
+	
+	<s:VGroup>
+		<s:Label styleName="caption" text="Вход в систему" width="100%" textAlign="center"/>
+		<components:PasswordInput id="passwordTextInput" skinClass="uz.olim.rpos.skins.TextInputSkin" width="285"/>
+		<components:TouchKeyboard customButtonLabel="/"
+			digitClick="touchkeyboard_digitClickHandler(event)" 
+			backspaceClick="touchkeyboard_backspaceClickHandler(event)"
+			customClick="touchkeyboard_customClickHandler(event)"/>
+	</s:VGroup>
+</s:HGroup>

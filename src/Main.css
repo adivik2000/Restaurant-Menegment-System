@@ -1,0 +1,59 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+s|WindowedApplication {
+
+}
+global
+{
+	focus-alpha: 0;
+}
+
+s|Label.caption {
+	font-size: 24px;
+	color: #0A92FE;
+}
+
+@font-face
+{
+	fontFamily: pictos-web;
+	src: url("E:\Downloads\pictos-web.ttf");
+	embedAsCFF: true;
+}
+
+s|Button.pictos {
+	font-family: pictos-web;
+	font-anti-alias-type: normal;
+	font-size: 44;
+	skinClass: ClassReference('uz.olim.rpos.skins.TouchButtonSkin');
+}
+
+s|Button.digit {
+	font-size: 46;
+	font-weight: bold;
+	font-anti-alias-type: advanced;
+	font-sharpness: 400;
+	skinClass: ClassReference('uz.olim.rpos.skins.TouchButtonSkin');
+}
+
+s|Button.small {
+	font-family: pictos-web;
+	font-anti-alias-type: normal;
+	font-size: 32;
+	skinClass: ClassReference('uz.olim.rpos.skins.SmallTouchButtonSkin');
+}
+
+mx|ToolTip {
+	font-size: 15;
+	color: #0A92FE;
+	background-color: #FFFFFF;
+	background-alpha: 1;
+	border-skin: ClassReference('mx.skins.halo.HaloBorder');
+	border-style: solid;
+	border-visible: 1;
+	border-color: #0A92FE;
+	corner-radius: 3;
+	padding-left: 5;
+	padding-right: 5;
+}
